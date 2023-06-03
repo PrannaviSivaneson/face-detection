@@ -65,7 +65,7 @@ if img_file_buffer is not None:
     cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
     # st.image(cv2_img)
     try:
-        predicted_class = predict_image_class(frame)
+        predicted_class = predict_image_class(cv2_img)
         st.write("Predicted class:", predicted_class)
 
     except Exception as err:
