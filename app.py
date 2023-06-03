@@ -28,7 +28,7 @@ def predict_image_class(image):
     preprocessed_image = preprocess_image(image)
     input_image = np.expand_dims(preprocessed_image, axis=0)
     predictions = loaded_model.predict(input_image)
-    st.write(predictions)
+    st.write(predictions[0])
     predicted_class_index = np.argmax(predictions)
     predicted_class_label = class_labels[str(predicted_class_index)]
     return predicted_class_label
