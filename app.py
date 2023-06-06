@@ -13,7 +13,6 @@ loaded_model.load_weights("model_weights.h5")
 
 # Load the class labels
 class_labels = np.load("class_labels.npy", allow_pickle=True).item()
-st.write(class_labels)
 
 
 # Function to preprocess an image
@@ -29,7 +28,6 @@ def predict_image_class(image):
     preprocessed_image = preprocess_image(image)
     input_image = np.expand_dims(preprocessed_image, axis=0)
     predictions = loaded_model.predict(input_image)
-    st.write(predictions[0])
     predicted_class_index = np.argmax(predictions)
     predicted_class_label = class_labels[str(predicted_class_index)]
     return predicted_class_label
@@ -45,21 +43,6 @@ st.write("Click the button below to capture an image")
 
 # Create a placeholder for the captured image
 captured_image = st.empty()
-
-# # Create a button to capture the image
-# capture_button = st.button("Capture")
-
-# # Capture the image when the button is clicked
-# if capture_button:
-#     video_capture = cv2.VideoCapture(0)
-#     ret, frame = video_capture.read()
-#     video_capture.release()
-#     captured_image.image(frame, channels="BGR", width=300)
-
-#     # Preprocess and predict the captured image
-#     predicted_class = predict_image_class(frame)
-#     st.write("Predicted class:", predicted_class)
-
 
 img_file_buffer = st.camera_input("Take a picture")
 if img_file_buffer is not None:
