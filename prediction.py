@@ -94,4 +94,5 @@ model.save_weights("model_weights.h5")
 class_labels = {}
 for i in range(len(classes)):
     class_labels[f"{i}"] = classes[i]
+
 np.save("class_labels.npy", class_labels)
