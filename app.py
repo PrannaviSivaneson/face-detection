@@ -51,7 +51,7 @@ if img_file_buffer is not None:
     # st.image(cv2_img)
     try:
         predicted_class = predict_image_class(cv2_img)
-        st.write("Predicted class:", predicted_class)
+        st.write("My best prediction is", predicted_class)
 
     except Exception as err:
         st.write(err)
