@@ -91,5 +91,7 @@ with open("model_architecture.json", "w") as json_file:
 model.save_weights("model_weights.h5")
 
 # Save the class labels
-class_labels = {"0": "Abi", "1": "Thanu"}
+class_labels = {}
+for i in range(len(classes)):
+    class_labels[f"{i}"] = classes[i]
 np.save("class_labels.npy", class_labels)
