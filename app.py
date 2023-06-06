@@ -13,6 +13,7 @@ loaded_model.load_weights("model_weights.h5")
 
 # Load the class labels
 class_labels = np.load("class_labels.npy", allow_pickle=True).item()
+st.write(class_labels)
 
 
 # Function to preprocess an image
